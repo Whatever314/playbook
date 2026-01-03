@@ -1,0 +1,19 @@
+---
+title: Input Method Settings
+description: Configure general settings for Input Method
+privilege: TrustedInstaller
+actions:
+
+  # === perf: Force explorer to use high performance GPU
+  # - !registryValue: { path: 'HKCU\Software\Microsoft\DirectX\UserGpuPreferences', value: 'C:\Windows\explorer.exe', type: REG_SZ, data: 'GpuPreference=2;' }
+  # - !registryValue: { path: 'HKU\.DEFAULT\Software\Microsoft\DirectX\UserGpuPreferences', value: 'C:\Windows\explorer.exe', type: REG_SZ, data: 'GpuPreference=2;' }
+
+  # === Add XiaoHe Double Pinyin
+  - !registryValue: {path: 'HKCU\Software\Microsoft\InputMethod\Settings\CHS', value: 'UserDefinedDoublePinyinScheme0', type: REG_SZ, data: '小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt'}
+  - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\InputMethod\Settings\CHS', value: 'UserDefinedDoublePinyinScheme0', type: REG_SZ, data: '小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt'}
+
+  # === Enable Double Pinyin
+  - !registryValue: {path: 'HKCU\Software\Microsoft\InputMethod\Settings\CHS', value: 'EnableDoublePinyin', type: REG_DWORD, data: '1'}
+  # - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\InputMethod\Settings\CHS', value: 'EnableDoublePinyin', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKCU\Software\Microsoft\InputMethod\Settings\CHS', value: 'DoublePinyinScheme', type: REG_DWORD, data: '10'}
+  # - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\InputMethod\Settings\CHS', value: 'DoublePinyinScheme', type: REG_DWORD, data: '10'}

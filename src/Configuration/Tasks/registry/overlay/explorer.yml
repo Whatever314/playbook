@@ -1,0 +1,32 @@
+---
+title: My Explorer Settings
+description: Configure general settings for Explorer
+privilege: TrustedInstaller
+actions:
+
+  # === perf: Force explorer to use high performance GPU
+  # - !registryValue: { path: 'HKCU\Software\Microsoft\DirectX\UserGpuPreferences', value: 'C:\Windows\explorer.exe', type: REG_SZ, data: 'GpuPreference=2;' }
+  # - !registryValue: { path: 'HKU\.DEFAULT\Software\Microsoft\DirectX\UserGpuPreferences', value: 'C:\Windows\explorer.exe', type: REG_SZ, data: 'GpuPreference=2;' }
+
+  # === Speed up shutdown time by lowering the amount of time it takes the OS to close/kill background Services.
+  # ------> Changed to 1.5 seconds (1500), default is 5 seconds (5000).
+  # ------> https://www.sevenforums.com/tutorials/717-shut-down-speed-up.html
+  - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Control', value: 'WaitToKillServiceTimeout', type: REG_SZ, data: '3000'}
+
+  # === Show Pop-up Description - Hide
+  # ------> https://www.tenforums.com/tutorials/89239-hide-show-pop-up-descriptions-windows-10-a.html
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ShowInfoTip', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ShowInfoTip', type: REG_DWORD, data: '1'}
+
+  # === Show Hidden Files
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Hidden', type: REG_DWORD, data: '1'}
+
+  # === Show File Extensions
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'HideFileExt', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'HideFileExt', type: REG_DWORD, data: '0'}
+
+  # === Show Selection Boxes
+  - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'AutoCheckSelect', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'AutoCheckSelect', type: REG_DWORD, data: '1'}
+
