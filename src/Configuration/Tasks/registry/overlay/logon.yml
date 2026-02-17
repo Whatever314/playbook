@@ -1,0 +1,16 @@
+---
+title: Overlay system/logon.yml
+description: Configure logon settings
+privilege: TrustedInstaller
+actions:
+  # =============================
+  # === Windows Logon Options ===
+  # =============================
+
+  # === Sign-in and lock last interactive user automatically after a restart.
+  # - !registryValue: {path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System', value: 'DisableAutomaticRestartSignOn', type: REG_DWORD, data: '1'}
+  - !registryValue: {
+      path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System',
+      value: "DisableAutomaticRestartSignOn",
+      operation: delete,
+    }

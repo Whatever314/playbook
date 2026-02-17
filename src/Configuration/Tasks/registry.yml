@@ -67,3 +67,8 @@ actions:
   - !task: {path: 'Tasks\registry\misc\fixes.yml'}
   - !task: {path: 'Tasks\registry\misc\msi-installer-in-safe-mode.yml'}
 
+  # Overlay
+  - !writeStatus: {status: "Applying Overlay"}
+  - !task: {path: 'Tasks\registry\overlay\explorer.yml'}
+  - !task: {path: 'Tasks\registry\overlay\input.yml'}
+  - !task: {path: 'Tasks\registry\overlay\logon.yml'}
